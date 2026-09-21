@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050301">
+<title>🌻 Feliz Día de las Flores Amarillas 💛</title>
+<meta name="description" content="Una galaxia dorada de flores amarillas y corazones, hecha de luz.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== ESCENA 3D ===================== -->
+  <canvas id="scene" class="needs-3d"></canvas>
+  <div id="heart-glow" class="needs-3d" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ===================== CONTROLES ===================== -->
+  <div class="floating-ui">
+    <button id="audio-toggle" class="icon-btn" aria-label="Reproducir música" title="Música">
+      <svg viewBox="0 0 24 24" class="ic-play"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+      <svg viewBox="0 0 24 24" class="ic-pause"><path d="M6 5h4v14H6zM14 5h4v14h-4z" fill="currentColor"/></svg>
+    </button>
+    <button id="morph-toggle" class="icon-btn emoji-btn needs-3d" data-forma="" aria-label="Cambiar forma" title="Cambiar forma">💛</button>
+  </div>
+
+  <!-- Botón flotante de la carta (aparece con la forma, como en el video) -->
+  <button id="letter-fab" class="letter-fab" aria-label="Abrir carta" title="Abrir carta">💌</button>
+
+  <!-- ===================== ETAPAS ===================== -->
+
+  <section id="stage-intro" class="stage active">
+    <div class="stage-inner center">
+      <p id="txt-intro" class="intro-text fade-in-up"></p>
+      <button id="btn-open" class="btn btn-solid glow-btn fade-in-up d1"></button>
+    </div>
+  </section>
+
+  <section id="stage-gathering" class="stage">
+    <div class="stage-inner center">
+      <p id="txt-gathering" class="gathering-text fade-in-up"></p>
+    </div>
+  </section>
+
+  <section id="stage-heart" class="stage stage-top">
+    <div class="stage-inner center">
+      <h1 class="title-wrap fade-in-up">
+        <span id="title-line1" class="title-gold line1"></span>
+        <span id="title-line2" class="title-gold line2"></span>
+      </h1>
+      <p id="txt-subtitle" class="subtitle fade-in-up d1"></p>
+    </div>
+  </section>
+
+  <section id="stage-message" class="stage stage-bottom">
+    <div class="stage-inner center">
+      <p id="txt-message" class="message-text fade-in-up"></p>
+      <button id="btn-letter" class="btn btn-outline fade-in-up d1"></button>
+    </div>
+  </section>
+
+  <section id="stage-letter" class="stage stage-modal">
+    <article class="letter-card fade-in-up">
+      <button id="btn-letter-close" class="icon-btn letter-close" aria-label="Cerrar carta">✕</button>
+      <p id="letter-greeting" class="letter-greeting"></p>
+      <div id="letter-body" class="letter-body"></div>
+      <p id="letter-closing" class="letter-closing"></p>
+      <p id="letter-sender" class="letter-sender"></p>
+      <p id="letter-ps" class="letter-ps"></p>
+      <button id="btn-letter-continue" class="btn btn-solid">Ver galería 🌻</button>
+    </article>
+  </section>
+
+  <section id="stage-gallery" class="stage">
+    <div class="stage-inner center gallery-wrap">
+      <h2 id="gallery-title" class="title-gold small"></h2>
+      <div id="gallery-grid" class="gallery-grid"></div>
+      <button id="btn-gallery-continue" class="btn btn-solid"></button>
+    </div>
+  </section>
+
+  <section id="stage-final" class="stage">
+    <div class="stage-inner center">
+      <p id="txt-final" class="final-text fade-in-up"></p>
+      <button id="btn-replay" class="btn btn-outline fade-in-up d1"></button>
+    </div>
+  </section>
+
+  <!-- Visor de fotos -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <img id="lightbox-img" alt="Recuerdo">
+    <p id="lightbox-cap"></p>
+  </div>
+
+  <!-- ===================== LIBRERÍA Y MÓDULOS ===================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/textures.js"></script>
+  <script src="js/shaders.js"></script>
+  <script src="js/bloom.js"></script>
+  <script src="js/galaxy.js"></script>
+  <script src="js/orbits.js"></script>
+  <script src="js/phrases.js"></script>
+  <script src="js/heart.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
